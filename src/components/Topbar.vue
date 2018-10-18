@@ -1,10 +1,19 @@
 <template>
-   <div id="Topbar">我是topbar</div>
+   <div id="Topbar">
+    <div class="logo">
+      VueResumer
+    </div>
+    <div class="actions">
+      <button>注册</button>
+      <button>登陆</button>
+    </div>
+   </div>
 </template>
 
 <style>
   #Topbar{
-      min-height: 100px;
-      border: 1px solid green;
+      display: flex;
+      justify-content: space-between;
+      padding: 16px;
   }
 </style>
