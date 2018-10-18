@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <Topbar class="topbar"/>
+    <main>
+      <Editor class="editor"/>
+      <Preview class="preview"/>
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Topbar from './components/Topbar'
+import Editor from './components/Editor'
+import Preview from './components/Preview'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+   Topbar, Editor, Preview
   }
 }
 </script>
@@ -21,8 +25,20 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.topbar{
+}
+main{
+  display: flex;
+  flex: 1;
+}
+main .editor{
+  width: 20em;
+}
+main .preview{
+  flex: 1;
 }
 </style>
