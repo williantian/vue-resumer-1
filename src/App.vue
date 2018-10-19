@@ -14,7 +14,7 @@ import Topbar from './components/Topbar'
 import Editor from './components/Editor'
 import Preview from './components/Preview'
 
-export default { //测试
+export default { 
   data() {
     return {
       previewMode: false ,
@@ -83,7 +83,7 @@ export default { //测试
   border-radius: 4px;
   overflow: hidden;
 }
-#app main .preview{
+ main .preview{
   flex: 1;
   margin: 16px 16px 16px 8px;
   background: white;
