@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>工作经历</h1>
+      <h1>{{title}}</h1>
       <el-form>
         <div class="container" v-for="(work, index) in items">
           <el-form-item v-for="key in keys" v-bind:label="labels[key] || key" :key="key">
@@ -16,7 +16,7 @@
 
 <script>
   export default {
-    props: ['items' , 'labels'],
+    props: ['items' , 'labels' , 'title'],
     computed: {
       keys() {
         return Object.keys(this.items[0])
@@ -24,7 +24,11 @@
     },
     methods: {
       addWorkHistory() {
-        this.items.push({company: '', content: ''})
+        const empty = {}
+        this.keys.map((key)=>{
+          empty[key] = ''
+        })
+        this.items.push(empty)
       },
       removeWorkHistory(index) {
         this.items.splice(index, 1)

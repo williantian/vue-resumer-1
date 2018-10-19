@@ -1,10 +1,11 @@
 <template>
-  <div id="app">
-    <Topbar class="topbar"/>
+  <div id="app" v-bind:class="{previewMode: previewMode}">
+    <Topbar class="topbar" v-on:preview="preview"/>
     <main>
-      <Editor class="editor"/>
-      <Preview class="preview"/>
+      <Editor v-bind:resume="resume" class="editor"/>
+      <Preview v-bind:resume="resume" class="preview"/>
     </main>
+    <el-button class="exitPreview" v-on:click="exitPreview">关闭预览</el-button>
   </div>
 </template>
 
@@ -14,6 +15,41 @@ import Editor from './components/Editor'
 import Preview from './components/Preview'
 
 export default {
+  data() {
+    return {
+      previewMode: false ,
+      resume: {
+        profile: {
+          name: '' ,
+          city: '' ,
+          birth: ''
+        },
+        workHistory: [
+          {company: '', content: ''}
+        ] ,
+        studyHistory: [
+          {school: '', duration: '', degree: '',}
+        ] ,
+        projects: [
+          {name: '', content: ''}
+        ] ,
+        awards: [
+          {name: ''}
+        ] ,
+        contacts: {
+          QQ:'', wechat: '', email: '', phone:''
+        }
+      }
+    }
+  },
+  methods: {
+    preview(){
+      this.previewMode = true
+    },
+    exitPreview(){
+      this.previewMode = false
+    }
+  },
   components: {
    Topbar, Editor, Preview
   }
@@ -60,5 +96,24 @@ main .preview{
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+}
+.previewMode .preview{
+  max-width: 800px;
+  margin: 32px auto;
+}
+.previewMode > #topbar {
+  display: none;
+}
+.previewMode #editor {
+  display: none;
+}
+.exitPreview{
+  display: none;
+}
+.previewMode .exitPreview{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: inline-block;
 }
 </style>
