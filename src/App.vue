@@ -70,12 +70,12 @@ export default {
   z-index: 1;
   box-shadow: 0 0 3px rgb(0, 0, 0, 0.3);
 }
-main{
+#app main{
   display: flex;
   flex: 1;
   background: #ddd;
 }
-main .editor{
+#app main .editor{
   width: 40em;
   margin: 16px 8px 16px 16px;
   background: white;
@@ -83,7 +83,7 @@ main .editor{
   border-radius: 4px;
   overflow: hidden;
 }
-main .preview{
+#app main .preview{
   flex: 1;
   margin: 16px 16px 16px 8px;
   background: white;
