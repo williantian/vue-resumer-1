@@ -17,10 +17,10 @@
         <ProfileEditor v-bind:profile="profile"/>
       </li>
       <li v-bind:class="{active: currentTab === 1}">
-        <WorkHistoryEditor v-bind:items="workHistory" v-bind:labels="{company: '公司', content: '工作内容'}"/>
+        <ArrayEditor v-bind:items="workHistory" v-bind:labels="{company: '公司', content: '工作内容'}"/>
       </li>
       <li v-bind:class="{active: currentTab === 2}">
-        <StudyHistoryEditor v-bind:items="studyHistory" v-bind:labels="{school: '学校', duration: '时间', degree: '学历'}" />
+        <ArrayEditor v-bind:items="studyHistory" v-bind:labels="{school: '学校', duration: '时间', degree: '学历'}" />
       </li>
       <li v-bind:class="{active: currentTab === 3}">
         <h1>项目经历</h1>
@@ -37,10 +37,9 @@
 
 <script>
   import ProfileEditor from './ProfileEditor'
-  import WorkHistoryEditor from './WorkHistoryEditor'
-  import StudyHistoryEditor from './StudyHistoryEditor'
+  import ArrayEditor from './ArrayEditor'
    export default{
-     components: { ProfileEditor , WorkHistoryEditor ,StudyHistoryEditor} ,
+     components: { ProfileEditor , ArrayEditor } ,
      data() {
        return {
          currentTab: 0,
