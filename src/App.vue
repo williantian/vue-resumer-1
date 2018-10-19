@@ -14,7 +14,7 @@ import Topbar from './components/Topbar'
 import Editor from './components/Editor'
 import Preview from './components/Preview'
 
-export default {
+export default { //测试
   data() {
     return {
       previewMode: false ,
