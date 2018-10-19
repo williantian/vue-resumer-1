@@ -14,13 +14,13 @@
     </nav>
     <ol class="panes">
       <li v-bind:class="{active: currentTab === 0}">
-        <profileEditor v-bind:profile="profile"/>
+        <ProfileEditor v-bind:profile="profile"/>
       </li>
       <li v-bind:class="{active: currentTab === 1}">
-        <WorkHistoryEditor v-bind:workHistory="workHistory"/>
+        <WorkHistoryEditor v-bind:items="workHistory" v-bind:labels="{company: '公司', content: '工作内容'}"/>
       </li>
       <li v-bind:class="{active: currentTab === 2}">
-        <h1>学习经历</h1>
+        <StudyHistoryEditor v-bind:items="studyHistory" v-bind:labels="{school: '学校', duration: '时间', degree: '学历'}" />
       </li>
       <li v-bind:class="{active: currentTab === 3}">
         <h1>项目经历</h1>
@@ -36,10 +36,11 @@
 </template>
 
 <script>
-  import profileEditor from './profileEditor'
+  import ProfileEditor from './ProfileEditor'
   import WorkHistoryEditor from './WorkHistoryEditor'
+  import StudyHistoryEditor from './StudyHistoryEditor'
    export default{
-     components: { profileEditor , WorkHistoryEditor} ,
+     components: { ProfileEditor , WorkHistoryEditor ,StudyHistoryEditor} ,
      data() {
        return {
          currentTab: 0,
@@ -51,6 +52,9 @@
          },
          workHistory: [
            {company: '', content: ''}
+         ] ,
+         studyHistory: [
+           {school: '', duration: '', degree: '',}
          ]
        }
      },
