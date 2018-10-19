@@ -4,6 +4,5 @@
 
 <style>
   #Preview{
-      min-height: 100px;
   }
 </style>
