@@ -76,10 +76,10 @@
   }
 </script>
 <style>
-.exitPreview{
+.el-button.exitPreview{
   display: none;
 }
-.previewMode .exitPreview{
+.previewMode .el-button.exitPreview{
   position: fixed;
   right: 16px;
   bottom: 16px;
