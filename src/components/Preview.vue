@@ -2,7 +2,7 @@
   <div>
     <h1>个人信息</h1>
     <p>{{resume.profile.name || '请填写名字'}}</p>
-    <p>{{resume.profile.birth || '请填写出生年月'}} | {{resume.profile.city || '请填写城市'}}</p>
+    <p>{{resume.profile.city || '请填写城市'}} | {{resume.profile.birth || '请填写出生年月'}}</p>
     <hr>
 
     <section v-if="filter(resume.workHistory).length > 0">

@@ -3,7 +3,7 @@
     <nav>
       <ol>
         <li 
-        v-for="i in [0,1,2,3,4,5]"
+        v-for="i in [0,1,2,3,4,5]" :key="i.id"
         v-bind:class="{active: currentTab === i}" 
         v-on:click="currentTab = i">
           <svg class="icon">
