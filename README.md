@@ -1,3 +1,5 @@
+#若下载源码开server运行 需要安装vue-router webpack
+
 # vue-resumer-1
 
 > A Vue.js project
