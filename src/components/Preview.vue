@@ -8,7 +8,7 @@
     <section v-if="filter(resume.workHistory).length > 0">
       <h2>工作经历</h2>
       <ol>
-        <li v-for="work in filter(resume.workHistory)">
+        <li v-for="work in filter(resume.workHistory)" :key="work.id">
           {{work.company}}
           {{work.content}}
         </li>
@@ -17,7 +17,7 @@
     <section v-if="filter(resume.studyHistory).length > 0">
     <h2>学习经历</h2>
     <ol>
-      <li v-for="item in filter(resume.studyHistory)">
+      <li v-for="item in filter(resume.studyHistory)" :key="item.id">
         {{item.school}}
         {{item.duration}}
         {{item.degree}}
@@ -27,7 +27,7 @@
     <section v-if="filter(resume.projects).length > 0">
       <h2>项目经历</h2>
       <ol>
-        <li v-for="project in filter(resume.projects)">
+        <li v-for="project in filter(resume.projects)" :key="project.id">
           {{project.name}}
           {{project.content}}
         </li>
@@ -36,7 +36,7 @@
     <section v-if="filter(resume.awards).length > 0">
       <h2>获奖情况</h2>
       <ol>
-        <li v-for="item in filter(resume.awards)">
+        <li v-for="item in filter(resume.awards)" :key="item.id">
           {{item.name}}
         </li>
       </ol>

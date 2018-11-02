@@ -1,18 +1,28 @@
 <template>
-  <div id="app" v-bind:class="{previewMode: previewMode}">
-    <router-view/>
-    <el-button class="exitPreview" v-on:click="exitPreview">关闭预览</el-button>
+  <div class="page" >
+    <div class="pageContainer">
+      <div id="main" v-bind:class="{previewMode: previewMode}">
+        <Topbar class="topbar" v-on:preview="preview"/>
+        <main>
+          <Editor v-bind:resume="resume" class="editor"/>
+          <Preview v-bind:resume="resume" class="preview"/>
+        </main>
+       <el-button class="exitPreview" v-on:click="exitPreview">关闭预览</el-button>
+      </div>
+    </div>
   </div>
+
 </template>
 
 <script>
-import Topbar from './components/Topbar'
-import Editor from './components/Editor'
-import Preview from './components/Preview'
+import Topbar from './Topbar'
+import Editor from './Editor'
+import Preview from './Preview'
 
-export default { 
+export default {
   data() {
     return {
+      showCode: false ,
       previewMode: false ,
       resume: {
         profile: {
@@ -44,34 +54,37 @@ export default {
     },
     exitPreview(){
       this.previewMode = false
+    },
+    signInComfirm(){
+      this.showCode = true
     }
   },
   components: {
-   Topbar, Editor, Preview
+   Topbar, Editor, Preview ,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+.pageContainer{
+    flex: 1;
 }
 .topbar{
   position: relative;
   z-index: 1;
   box-shadow: 0 0 3px rgb(0, 0, 0, 0.3);
 }
-#app main{
+#main{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#main main{
   display: flex;
   flex: 1;
   background: #ddd;
 }
-#app main .editor{
+#main main .editor{
   width: 40em;
   margin: 16px 8px 16px 16px;
   background: white;
@@ -86,7 +99,6 @@ export default {
   box-shadow: 0 0 3px rgb(0, 0, 0, 0.3);
   border-radius: 4px;
   overflow: hidden;
-  padding: 10px;
 }
 .icon {
   width: 1em; height: 1em;
@@ -97,13 +109,10 @@ export default {
 .previewMode .preview{
   max-width: 800px;
   margin: 32px auto;
-  padding: 16px 16px;
+  padding: 10px 20px;
 }
-.previewMode > #topbar {
-  display: none;
-}
-.previewMode #editor {
-  display: none;
+.previewMode main{
+  height: 100vh;
 }
 .exitPreview{
   display: none;
@@ -113,5 +122,27 @@ export default {
   right: 16px;
   bottom: 16px;
   display: inline-block;
+}
+.previewMode #topbar, .previewMode #editor{
+    display: none;
+}
+
+
+/*signContainer*/
+.page{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.signContainer {
+  height: 460px;
+  max-width: 800px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -400px;
+  margin-top: -230px;
+  justify-content: center;
+  align-items: center;
 }
 </style>
