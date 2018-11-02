@@ -56,6 +56,9 @@
   export default{
     props: ['resume'] ,
     methods: {
+      exitPreview(){
+        this.$emit('exitPreview')
+      },
       filter(array){ //找出非空对象
         return array.filter(item=> !this.isEmpty(item))
       },
@@ -73,6 +76,13 @@
   }
 </script>
 <style>
-  #Preview{
-  }
+.exitPreview{
+  display: none;
+}
+.previewMode .exitPreview{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: inline-block;
+}
 </style>

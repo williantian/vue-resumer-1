@@ -5,9 +5,8 @@
         <Topbar class="topbar" v-on:preview="preview"/>
         <main>
           <Editor v-bind:resume="resume" class="editor"/>
-          <Preview v-bind:resume="resume" class="preview"/>
+          <Preview v-bind:resume="resume" class="preview" v-on:exitPreview="exitPreview"/>
         </main>
-       <el-button class="exitPreview" v-on:click="exitPreview">关闭预览</el-button>
       </div>
     </div>
   </div>

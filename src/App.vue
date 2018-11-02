@@ -1,5 +1,5 @@
 <template>
-  <div id="app" v-bind:class="{previewMode: previewMode}">
+  <div id="app"  v-bind:class="{previewMode: previewMode}">
     <router-view/>
     
   </div>
