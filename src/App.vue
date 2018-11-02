@@ -1,7 +1,7 @@
 <template>
   <div id="app" v-bind:class="{previewMode: previewMode}">
     <router-view/>
-    <el-button class="exitPreview" v-on:click="exitPreview">关闭预览</el-button>
+    
   </div>
 </template>
 

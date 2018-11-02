@@ -47,6 +47,9 @@
       <p>{{resume.contacts.wechat || '请填写微信'}}</p>
       <p>{{resume.contacts.email || '请填写邮箱'}}</p>
       <p>{{resume.contacts.phone || '请填写电话'}}</p>
+    <section>
+      <el-button class="exitPreview" v-on:click="exitPreview">关闭预览</el-button>
+    </section>  
   </div>
 </template>
 <script>
